@@ -3,9 +3,10 @@ html, body{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 html{
-  background: #CCCCB2;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #757519, #CCCCB2);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #757519, #CCCCB2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: url(images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
 }
 
 .score-information-container{
@@ -14,7 +15,8 @@ html{
   width: 100%;
   justify-content: space-between;
   align-items: flex-end;
-  color: black;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .info-log-container{
@@ -22,6 +24,9 @@ html{
   height: 10vh;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-size:25px;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .options-container{
@@ -43,13 +48,16 @@ html{
   border-width: 0px;
   border-radius: 50%;
   transition: 0.5s ease-in-out;
+  box-shadow: 10px 5px 5px rgba(63, 102, 47, 0.774);
+  border-style: solid;
 }
 
 .buttons:hover{
-  transform: scale(1.15);
-  border-color: green greenyellow;
+  transform: scale(1.2);
+  border-color: rgba(236, 234, 120, 0.774);
   border-width: 5px;
   transition: 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 #player-score{
@@ -63,17 +71,17 @@ html{
 #rock-button{
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(148, 124, 124, 0.5), rgba(119, 119, 53, 0.5)),url(images/rock.png);
+  background-image: linear-gradient(rgba(253, 253, 253, 0.5), rgba(119, 119, 53, 0.5)),url(images/rock.png);
 }
 
 #paper-button{
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(148, 124, 124, 0.5), rgba(119, 119, 53, 0.5)),url(images/leaf.png);
+  background-image: linear-gradient(rgba(253, 253, 253, 0.5), rgba(119, 119, 53, 0.5)),url(images/leaf.png);
 }
 
 #scissors-button{
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(148, 124, 124, 0.5), rgba(119, 119, 53, 0.5)),url(images/scissors.jpg);
+  background-image: linear-gradient(rgba(253, 253, 253, 0.5), rgba(119, 119, 53, 0.5)),url(images/scissors.jpg);
 }

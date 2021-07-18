@@ -45,8 +45,8 @@ function computerWon() {
 
 function playRound() {
   let computerHand = generateComputerHand();
-  let computerWinsMessage = `${computerHand} beats ${playerHand}. Computer won this round.`;
-  let playerWinsMessage = `${playerHand} beats ${computerHand}. Player won this round.`;
+  let computerWinsMessage = `${computerHand} beats ${playerHand}. COMPUTER WON THIS ROUND.`;
+  let playerWinsMessage = `${playerHand} beats ${computerHand}. PLAYER WON THIS ROUND.`;
   switch (true) {
     case computerHand === "Rock" && playerHand === "Scissors":
       computerScore++;
