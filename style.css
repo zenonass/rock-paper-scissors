@@ -14,7 +14,7 @@ html{
   width: 100%;
   justify-content: space-between;
   align-items: flex-end;
-  color: black;  
+  color: black;
 }
 
 .info-log-container{
@@ -26,20 +26,20 @@ html{
 
 .options-container{
   display: flex;
-  height: 30vh;
+  height: 50vh;
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap:50px;
+  gap:70px;
 }
 .footer-container{
   display: flex;
-  height: 30vh;
+  height: 10vh;
 }
 
 .buttons{
-  height: 170px;
-  width: 170px;
+  height: 270px;
+  width: 270px;
   border-width: 0px;
   border-radius: 50%;
   transition: 0.5s ease-in-out;
@@ -53,11 +53,11 @@ html{
 }
 
 #player-score{
-  padding-left: 300px;
+  padding-left: 360px;
 }
 
 #computer-score{
-  padding-right: 300px;
+  padding-right: 360px;
 }
 
 #rock-button{
