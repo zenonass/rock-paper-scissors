@@ -1,104 +1,95 @@
 let playerScore = 0;
 let computerScore = 0;
+let playerHand;
 const hands = ["Rock", "Paper", "Scissors"];
 
-function playerWon() {
-  alert(
-    `Player Score: ${playerScore}. Computer Score: ${computerScore}. Player won`
-  );
-  let answer = window.confirm("One more ?")
-  if (answer){
-    playerScore = 0;
-    computerScore = 0;
-    playGame()
-  }
-  else{
-    alert("Bye")
+const rockButton = document.querySelector('#rock-button');
+const paperButton = document.querySelector('#paper-button');
+const scissorsButton = document.querySelector('#scissors-button');
+const infoLog = document.querySelector('.info-log-container');
+const playerScoreInfo = document.querySelector('#player-score');
+const computerScoreInfo = document.querySelector('#computer-score');
+
+
+rockButton.addEventListener('click', () =>{
+  playerHand = hands[0]
+  playRound()
+});
+
+paperButton.addEventListener('click', () =>{
+  playerHand = hands[1]
+  playRound()
+});
+
+scissorsButton.addEventListener('click', () =>{
+  playerHand = hands[2]
+  playRound()
+});
+
+
+function generateComputerHand() {
+  return hands[Math.floor(Math.random() * 3)];
 }
+
+function playerWon() {
+  infoLog.textContent = `Player won`
+  playerScore = 0;
+  computerScore = 0;
 }
 
 function computerWon() {
-  alert(
-    `Computer Score: ${computerScore}. Player Score: ${playerScore}. Computer won`
-  );
-  let answer = window.confirm("One more ?")
-  if (answer){
-    playerScore = 0;
-    computerScore = 0;
-    playGame()
-  }
-  else{
-      alert("Bye")
-  }
+  infoLog.textContent = `Computer won`
+  playerScore = 0;
+  computerScore = 0;
 }
-
-function generateComputerHand() {
-    return hands[Math.floor(Math.random() * 3)];
-  }
-  function generatePlayerHand() {
-    let playerOption = window.prompt("Choose your hand");
-    let playerHand =
-      playerOption.substr(0, 1).toUpperCase() +
-      playerOption.substr(1).toLowerCase();
-    if (hands.includes(playerHand)) {
-      return playerHand;
-    } else {
-      alert("Incorrect option, choose from Rock, Paper and Scissors. Try again");
-      generatePlayerHand();
-    }
-  }
 
 function playRound() {
   let computerHand = generateComputerHand();
-  let playerHand = generatePlayerHand();
-  let computerWinsMessage = `${computerHand} beats ${playerHand}. Computer won. Computer Score: ${
-    computerScore + 1
-  }. Player Score: ${playerScore}.`;
-  let playerWinsMessage = `${playerHand} beats ${computerHand}. Player won. Computer Score: ${computerScore}. Player Score: ${
-    playerScore + 1
-  }.`;
+  let computerWinsMessage = `${computerHand} beats ${playerHand}. Computer won this round.`;
+  let playerWinsMessage = `${playerHand} beats ${computerHand}. Player won this round.`;
   switch (true) {
     case computerHand === "Rock" && playerHand === "Scissors":
       computerScore++;
-      alert(computerWinsMessage);
+      infoLog.textContent = computerWinsMessage
       break;
     case computerHand === "Paper" && playerHand === "Rock":
       computerScore++;
-      alert(computerWinsMessage);
+      infoLog.textContent = computerWinsMessage
       break;
     case computerHand === "Scissors" && playerHand === "Paper":
       computerScore++;
-      alert(computerWinsMessage);
+      infoLog.textContent = computerWinsMessage
       break;
     case computerHand === "Scissors" && playerHand === "Rock":
       playerScore++;
-      alert(playerWinsMessage);
+      infoLog.textContent = playerWinsMessage
+      playerScoreInfo.textContent = `Player: ${playerScore}`
       break;
     case computerHand === "Rock" && playerHand === "Paper":
       playerScore++;
-      alert(playerWinsMessage);
+      infoLog.textContent = playerWinsMessage
       break;
     case computerHand === "Paper" && playerHand === "Scissors":
       playerScore++;
-      alert(playerWinsMessage);
+      infoLog.textContent = playerWinsMessage
       break;
     default:
-      alert("A tie");
+      infoLog.textContent = "A tie"
       break;
+
   }
-}
-function playGame() {
-    while (true) {
-    if (playerScore === 5) {
-        playerWon();
-        break;
-    } else if (computerScore === 5) {
-        computerWon();
-        break;
-    } else {
-        playRound();
-    }
-    }
+  changeScore()
+  checkScore()
 }
 
-playGame()
+function changeScore(){
+  playerScoreInfo.textContent = `Player: ${playerScore}`
+  computerScoreInfo.textContent = `Computer: ${computerScore}`
+}
+function checkScore() {
+    if (playerScore >= 5) {
+        playerWon();
+    } else if (computerScore >= 5) {
+        computerWon();
+    }
+}
